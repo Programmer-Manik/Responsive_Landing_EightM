@@ -1,14 +1,6 @@
-
-import './App.css'
-import { Button } from './components/ui/button'
+import "./App.css";
+import MainLayouts from "./components/ui/Layouts/MainLayouts";
 function App() {
- 
-
-  return (
-    <>
-      <Button>button</Button>
-    </>
-  )
+  return <MainLayouts />;
 }
-
-export default App
+export default App;
