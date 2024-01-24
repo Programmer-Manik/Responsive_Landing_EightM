@@ -1,9 +1,10 @@
+import Container from "@/components/ui/Layouts/Container";
 
 const Home = () => {
    return (
-      <div>
-         <h1>this home com</h1>
-      </div>
+      <Container>
+         <h1>this is home components</h1>
+      </Container>
    );
 };
 
