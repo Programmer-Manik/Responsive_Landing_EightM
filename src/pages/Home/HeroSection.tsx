@@ -19,6 +19,21 @@ const introChildren = {
   visible:{opacity:1, y:0, transition:{duration:0.5,}}
 }
 
+const laptop = {
+  initial:{y: 0},
+  animate:{
+   y:30,
+   transition:{
+    y:{
+      duration:2,
+      repeat:Infinity,
+      repeatType:'reverse',
+      ease:'easeInOut'
+    }
+   }
+  },
+}
+
 const HeroSection = () => {
   return (
     <Container className=" h-[calc(100vh-80px)] grid grid-cols-1 lg:grid-cols-2 place-content-center">
@@ -47,9 +62,13 @@ const HeroSection = () => {
         <Button>Book a Service</Button>
         </motion.div>
       </motion.div>
-      <div className="mt-10 w-3/7 lg:w-full  mx-auto">
+      <motion.div className="mt-10 w-3/7 lg:w-full  mx-auto"
+      variants={laptop}
+      initial="initial"
+      animate="animate"
+      >
         <img className="w-[90%] rounded-3xl -rotate-[30deg] h-[95%] object-contain" src={MacBook} alt="" />
-      </div>
+      </motion.div>
     </Container>
   );
 };
