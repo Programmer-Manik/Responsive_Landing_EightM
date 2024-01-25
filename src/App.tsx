@@ -1,5 +1,5 @@
 import "./App.css";
-import MainLayouts from "./components/ui/Layouts/MainLayouts";
+import MainLayouts from "./components/Layouts/MainLayouts";
 function App() {
   return <MainLayouts />;
 }
