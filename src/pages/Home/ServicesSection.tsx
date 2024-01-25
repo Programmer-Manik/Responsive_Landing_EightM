@@ -1,5 +1,7 @@
 import Container from "@/components/Container";
 import BatteryReplacement from "@/components/ServiceTiles/BatteryReplacement";
+import ChipsSetReplacement from "@/components/ServiceTiles/ChipsSetReplacement";
+import DataRecovery from "@/components/ServiceTiles/DataRecovery";
 
 const ServicesSection = () => {
   return (
@@ -14,8 +16,8 @@ const ServicesSection = () => {
       </div>
       <div className="grid grid-cols-12 gap-[20px]">
          <BatteryReplacement/>
-         <div className="bg-red-200 h-[415px] rounded-2xl col-span-6 lg:col-span-5"></div>
-         <div className="bg-red-200 h-[415px] rounded-2xl col-span-6 lg:col-span-7"></div>
+         <ChipsSetReplacement/>
+         <DataRecovery/>
          <div className="bg-red-200 h-[415px] rounded-2xl col-span-12"></div>
          <div className="bg-red-200 h-[415px] rounded-2xl col-span-12 md:col-span-6 lg:col-span-4"></div>
          <div className="bg-red-200 h-[415px] rounded-2xl col-span-12 md:col-span-6 lg:col-span-4"></div>
