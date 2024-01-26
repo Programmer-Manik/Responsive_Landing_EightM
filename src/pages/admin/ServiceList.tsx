@@ -1,10 +1,8 @@
-
 const ServiceList = () => {
-   return (
-      <div>
-         <h1>sl</h1>
-      </div>
-   );
+ return (
+ <div>
+ <h2>Welcome to the ServiceList page</h2>
+ </div>
+ );
 };
-
 export default ServiceList;
