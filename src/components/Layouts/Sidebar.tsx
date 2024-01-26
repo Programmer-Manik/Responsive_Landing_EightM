@@ -46,5 +46,5 @@ const Sidebar = () => {
   );
 };
 
-//MODULE-8
+//iRepair-Backend
 export default Sidebar;
