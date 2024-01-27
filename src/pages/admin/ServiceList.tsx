@@ -24,7 +24,7 @@ const ServiceList = () => {
   return (
     <div>
       <h2>Welcome to the ServiceList page</h2>
-      {data.data.map((item) => (
+      {data.data.map((item:any) => (
         <h1>{item.name}</h1>
       ))}
     </div>
