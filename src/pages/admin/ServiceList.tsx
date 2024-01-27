@@ -1,4 +1,4 @@
-
+import { getServices } from "@/api/admin/services/services";
 import { useQuery } from "@tanstack/react-query";
 // import { useEffect, useState } from "react";
 const ServiceList = () => {
@@ -12,19 +12,21 @@ const ServiceList = () => {
   //     .then((data) => setData(data.data));
   // }, []);
 
-
-  const info = useQuery({
-    queryKey:["services"],
-    queryFn:(() => {
-      return fetch("http://localhost:5000/api/v1/services")
-    })
-})
-console.log(info)
-
-
+  
+  
+  const { isLoading, data, } = useQuery({
+    queryKey: ["services"],
+    queryFn:getServices 
+  });
+  if (isLoading) {
+    return <span>Loading...</span>;
+  }
   return (
     <div>
       <h2>Welcome to the ServiceList page</h2>
+      {data.data.map((item) => (
+        <h1>{item.name}</h1>
+      ))}
     </div>
   );
 };
