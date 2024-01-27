@@ -14,18 +14,23 @@ const ServiceList = () => {
 
   
   
-  const { isLoading, data, } = useQuery({
+  const { isLoading, data, isError} = useQuery({
     queryKey: ["services"],
     queryFn:getServices 
   });
+  console.log({isError,isLoading, data})
   if (isLoading) {
     return <span>Loading...</span>;
   }
+  if (isError) {
+    return <span>SomeThing error...</span>;
+  }
+  
   return (
     <div>
       <h2>Welcome to the ServiceList page</h2>
-      {data.data.map((item:any) => (
-        <h1>{item.name}</h1>
+      {data?.data?.map((item) => (
+        <h1>{item?.name}</h1>
       ))}
     </div>
   );
