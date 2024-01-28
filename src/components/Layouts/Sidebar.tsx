@@ -18,17 +18,7 @@ const Sidebar = () => {
           <LayoutDashboard className="shrink-0" />
           <span className="truncate">Dashboard</span>
         </NavLink>
-        <NavLink 
-        to="/admin/service-list"
-        className={({ isActive }) =>
-        cn(
-          "hover:bg-dark-gray transition-all bg-dark-gray hover:text-white rounded-md p-3  flex  items-center gap-2",
-          { "bg-dark-gray text-white": isActive }
-        )
-      }
-        >
-         <LayoutDashboard className="shrink-0" />
-         <span className="truncate">Service list</span></NavLink>
+        
         <NavLink 
         to="/admin/add-service"
         className={({ isActive }) =>
@@ -41,6 +31,17 @@ const Sidebar = () => {
          <LayoutDashboard className="shrink-0" />
          <span className="truncate">Add service</span>
          </NavLink>
+         <NavLink 
+        to="/admin/service-list"
+        className={({ isActive }) =>
+        cn(
+          "hover:bg-dark-gray transition-all bg-dark-gray hover:text-white rounded-md p-3  flex  items-center gap-2",
+          { "bg-dark-gray text-white": isActive }
+        )
+      }
+        >
+         <LayoutDashboard className="shrink-0" />
+         <span className="truncate">Service list</span></NavLink>
       </nav>
     </aside>
   );

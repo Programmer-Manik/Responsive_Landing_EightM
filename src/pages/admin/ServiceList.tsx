@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 
 import { useGetServices } from "@/api/admin/services/services.hook";
 import Container from "@/components/Container";
@@ -11,7 +12,9 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { Trash2 } from "lucide-react";
+import { FormEvent, useState } from "react";
 
 const ServiceList = () => {
  
@@ -24,6 +27,38 @@ const {
   if (isError) {
     return <span>SomeThing error...</span>;
   }
+
+
+// post method function down 
+const [serviceName, setServiceName] = useState("");
+  const queryClient = useQueryClient()
+const {mutateAsync, isError:postError , isSuccess} = useMutation({
+   mutationFn: async(data) => {
+      return await fetch('http//localhost:5000/api/v1/services', {
+         method:'POST',
+         body: JSON.stringify(data),
+         headers:{
+            'Content-Type' : 'application/json'
+         },
+      });
+   },
+   onSuccess:() => {
+    queryClient.invalidateQueries({queryKey:['services']});
+   }
+  });
+  console.log({postError,isSuccess})
+  const handleSubmit = async(e: FormEvent) => {
+    e.preventDefault()
+    const serviceData = {
+      name:serviceName,
+      description:'Replace any dead chips',
+      devices:['MackBook pro','MacKBook air', 'iPad pro'],
+      price:500.0,
+    }
+   console.log(serviceData);
+   await mutateAsync(serviceData);
+   console.log('done')
+  };
 
   return (
     <Container className="mt-20 border p-3 rounded-2xl">
@@ -55,6 +90,12 @@ const {
           </TableRow>
         </TableFooter>
       </Table>
+      <div>
+      <form onSubmit={handleSubmit}>
+        <input type="text" onChange={(e) => setServiceName(e.target.value)} />
+        <Button type="submit">Submit</Button>
+      </form>
+    </div>
     </Container>
   );
 };
